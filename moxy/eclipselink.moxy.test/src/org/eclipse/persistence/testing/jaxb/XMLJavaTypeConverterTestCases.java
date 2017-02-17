@@ -35,8 +35,8 @@ public class XMLJavaTypeConverterTestCases extends junit.framework.TestCase {
 	 */
 
 	@Test(expected = ConversionException.class)
-	public void testXMLAdapterMarshallerContract(@Mocked Session session, @Mocked DatabaseMapping mapping,
-			@Mocked Login login, @Mocked Platform platform, @Mocked ConversionManager mgr) {
+	public void testXMLAdapterMarshallerContract(final @Mocked Session session, final @Mocked DatabaseMapping mapping,
+			final @Mocked Login login, final @Mocked Platform platform, final @Mocked ConversionManager mgr) {
 		new Expectations() {
 			{
 				session.getDatasourceLogin();
@@ -55,8 +55,8 @@ public class XMLJavaTypeConverterTestCases extends junit.framework.TestCase {
 	}
 
 	@Test(expected = ConversionException.class)
-	public void testXMLAdapterUnMarshallerContract(@Mocked Session session, @Mocked DatabaseMapping mapping,
-			@Mocked Login login, @Mocked Platform platform, @Mocked ConversionManager mgr) {
+	public void testXMLAdapterUnMarshallerContract(final @Mocked Session session, final @Mocked DatabaseMapping mapping,
+			final @Mocked Login login, final @Mocked Platform platform, final @Mocked ConversionManager mgr) {
 		new Expectations() {
 			{
 				session.getDatasourceLogin();
