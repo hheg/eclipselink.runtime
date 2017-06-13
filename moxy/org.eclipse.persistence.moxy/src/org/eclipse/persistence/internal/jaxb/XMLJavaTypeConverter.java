@@ -130,8 +130,8 @@ public class XMLJavaTypeConverter extends org.eclipse.persistence.oxm.mappings.c
                 }
             }
             Object toConvert = dataValue;
-            //apply nested converter first
-            if(nestedConverter != null) {
+            // apply nested converter first
+            if (nestedConverter != null) {
                 toConvert = nestedConverter.convertDataValueToObjectValue(toConvert, session);
             } else {
                 if ((dataValue != null) && !(dataValue.getClass() == this.valueType)) {
@@ -147,16 +147,16 @@ public class XMLJavaTypeConverter extends org.eclipse.persistence.oxm.mappings.c
                 }
             }
             return adapter.unmarshal(toConvert);
-        } catch (Exception ex) {            
-            if(unmarshaller == null || unmarshaller.getErrorHandler() == null){
-            	throw ConversionException.couldNotBeConverted(dataValue, boundType, ex);
+        } catch (Exception ex) {
+            if (unmarshaller == null || unmarshaller.getErrorHandler() == null) {
+                throw ConversionException.couldNotBeConverted(dataValue, boundType, ex);
             }
             try {
-            	unmarshaller.getErrorHandler().warning(new SAXParseException(null, null, ex));
+                unmarshaller.getErrorHandler().warning(new SAXParseException(null, null, ex));
                 return null;
             } catch (SAXException e) {
-            	throw ConversionException.couldNotBeConverted(dataValue, boundType, ex);
-            }	            
+                throw ConversionException.couldNotBeConverted(dataValue, boundType, ex);
+            }
         }
     }
 
@@ -176,12 +176,12 @@ public class XMLJavaTypeConverter extends org.eclipse.persistence.oxm.mappings.c
                 }
             }
             Object dataValue = adapter.marshal(objectValue);
-            if(nestedConverter != null) {
+            if (nestedConverter != null) {
                 dataValue = nestedConverter.convertObjectValueToDataValue(dataValue, session);
             }
             return dataValue;
         } catch (Exception ex) {
-            if(marshaller == null || marshaller.getErrorHandler() == null){
+            if (marshaller == null || marshaller.getErrorHandler() == null) {
                 throw ConversionException.couldNotBeConverted(objectValue, valueType, ex);
             }
             try {
@@ -189,7 +189,7 @@ public class XMLJavaTypeConverter extends org.eclipse.persistence.oxm.mappings.c
                 return null;
             } catch (SAXException e) {
                 throw ConversionException.couldNotBeConverted(objectValue, valueType, ex);
-            }			
+            }
         }
     }
 

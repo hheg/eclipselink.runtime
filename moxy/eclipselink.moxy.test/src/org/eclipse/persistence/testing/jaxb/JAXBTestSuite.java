@@ -139,7 +139,6 @@ public class JAXBTestSuite extends TestCase {
         suite.addTestSuite(FileTestCases.class);
         suite.addTestSuite(XmlElementRefNillWithAttributesTestCases.class);
         suite.addTestSuite(XmlElementRefNillStringTestCases.class);
-        suite.addTestSuite(XMLJavaTypeConverterTestCases.class);
         return suite;
 
     }
